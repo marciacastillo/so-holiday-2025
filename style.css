@@ -1,0 +1,215 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Evita barras de desplazamiento */
+    font-family: sans-serif;
+}
+
+/* ---------------------------------------------------- */
+/* 1. Estilos del CONTENIDO PRINCIPAL (full-container)  */
+/* ---------------------------------------------------- */
+
+.full-container{
+    width:100vw;
+    height:100vh;
+    background-image:url(./assets/so-bg.webp);
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.gift{
+    position: absolute;
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* 1. Aplicar la transición al 'filter' para un efecto suave */
+    transition: filter 0.4s ease-in-out;
+    
+    /* Estado normal: Sin filtro o un filtro base muy sutil */
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+}
+.gift:hover{
+    /* filter: drop-shadow(horizontal vertical desenfoque color); */
+    
+    /* El efecto de "iluminación" que sigue el contorno de la imagen: */
+    /* * 0 0: Sombra centrada
+    * 15px: Desenfoque para el resplandor
+    * #ffdd44: Un color dorado/amarillo brillante */
+    filter: drop-shadow(0 0 15px #ffdd44)
+            drop-shadow(0 0 5px #ffdd44); /* Una segunda sombra para intensificar */
+}
+.gift-1{
+    width: 30%;
+    height: 35%;
+    bottom: 5%;
+    left: 50%;
+    background-image: url(./assets/gift-1.webp);
+    z-index: 7;
+}
+.gift-2{
+    width: 20%;
+    height: 25%;
+    bottom: 8%;
+    left: 33%;
+    z-index: 6;
+    background-image: url(./assets/gift-2.webp);
+}
+.gift-3{
+    width: 20%;
+    height: 40%;
+    bottom: 10%;
+    left: 17%;
+    z-index: 5;
+    background-image: url(./assets/gift-3.webp);
+}
+.gift-4{
+    width: 20%;
+    height: 27%;
+    bottom: 30%;
+    left: 0;
+    z-index: 4;
+    background-image: url(./assets/gift-4.webp);
+}
+.gift-5{
+    width: 25%;
+    height: 35%;
+    top: 15%;
+    left: 4%;
+    z-index: 3;
+    background-image: url(./assets/gift-5.webp);
+}
+.gift-6{
+    width: 20%;
+    height: 30%;
+    top: 20%;
+    left: 25%;
+    z-index: 1;
+    background-image: url(./assets/gift-6.webp);
+}
+.gift-7{
+    width: 25%;
+    height: 35%;
+    top: 22%;
+    left: 37%;
+    z-index: 2;
+    background-image: url(./assets/gift-7.webp);
+}
+
+.gifts-container{
+    position: absolute;
+    height:50vh;
+    width:30vw;
+    bottom:2vh;
+    left:15vw;
+}
+
+/* Por defecto, el contenido principal está oculto */
+.full-container {
+    display: none; 
+}
+
+/* ---------------------------------------------------- */
+/* 2. Estilos del MENSAJE DE ROTACIÓN (rotate-message)  */
+/* ---------------------------------------------------- */
+
+.rotate-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e74c3c; /* Color de advertencia */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    text-align: center;
+}
+
+/* Por defecto, el mensaje de rotación está visible */
+.rotate-message {
+    display: flex; 
+}
+
+
+/* ---------------------------------------------------- */
+/* 3. MEDIA QUERIES: LA MAGIA DE LA ORIENTACIÓN         */
+/* ---------------------------------------------------- */
+
+/* Si la pantalla está en modo HORIZONTAL (Landscape) */
+@media screen and (orientation: landscape) {
+    
+    /* Mostrar el contenido principal */
+    .full-container {
+        display: flex; 
+    }
+    
+    /* Ocultar el mensaje de rotación */
+    .rotate-message {
+        display: none;
+    }
+}
+
+/* Si la pantalla está en modo VERTICAL (Portrait) */
+@media screen and (orientation: portrait) {
+    
+    /* Mostrar el mensaje de rotación */
+    .rotate-message {
+        display: flex;
+    }
+    
+    /* Ocultar el contenido principal */
+    .full-container {
+        display: none; 
+    }
+}
+
+/* --- Estilos básicos para el Popup --- */
+
+.popup-overlay {
+    /* Oculto por defecto */
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.popup-overlay.active {
+    display: flex; /* Mostrar cuando se le añade la clase 'active' */
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+

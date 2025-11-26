@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="full-container">
+        <div class="gifts-container">
+            <div class="gift gift-1" data-content-key="mensaje1"></div>
+            <div class="gift gift-2" data-content-key="mensaje2"></div>
+            <div class="gift gift-3" data-content-key="mensaje3"></div>
+            <div class="gift gift-4" data-content-key="mensaje4"></div>
+            <div class="gift gift-5" data-content-key="mensaje5"></div>
+            <div class="gift gift-6" data-content-key="mensaje6"></div>
+            <div class="gift gift-7" data-content-key="mensaje7"></div>
+        </div> 
+        <div id="popup-overlay" class="popup-overlay">
+            <div class="popup-content">
+                <button class="close-btn" id="close-popup">&times;</button>
+                <div id="popup-body">
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="rotate-message">
+        <div class="message-content">
+            <h2>🔄 Por favor, gira tu dispositivo</h2>
+            <p>Esta aplicación requiere la orientación **horizontal** (landscape) para mostrar el contenido correctamente.</p>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+    <script src="./popup.js"></script>
+</body>
+</html>
