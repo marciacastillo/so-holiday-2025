@@ -4,26 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tingle.js@0.15.3/dist/tingle.min.css"
+    />
     <title>Document</title>
 </head>
 <body>
+    <div id="initial-popup" class="initial-popup-overlay">
+        <div class="initial-popup-content">
+            <h2>Season's greetings!</h2>
+            <p>Expedition teams spent 2025 in the South Atlantic Ocean off the coasts of Antarctica, the South Sandwich Islands, Argentina, and Uruguay, and there were some colossal moments! From observing an unprecedented view of the seafloor — newly uncovered by a calving ice sheet — to watching the country of Argentina fall in love with a sea star, Schmidt Ocean Institute continues to boldly explore our unknown Ocean, with you.
+            </p>
+            <p>This year’s holiday card was inspired by the children from South America who celebrated our Divestreams with art, creativity, and enthusiasm. We were delighted to see their inner scientists come alive. Explore the gifts on this imaginary seafloor, recreated in a child’s room, using ROV SuBastian. Each gift represents one of the year’s seven expeditions and shares a highlight to celebrate.
+            </p>
+            <p>Fair winds and following seas,</p>
+            <p>Your friends at Schmidt Ocean Institute</p>
+            <button id="accept-btn" class="popup-btn">Entendido</button>
+        </div>
+    </div>
     <div class="full-container">
         <div class="gifts-container">
-            <div class="gift gift-1" data-content-key="mensaje1"></div>
-            <div class="gift gift-2" data-content-key="mensaje2"></div>
-            <div class="gift gift-3" data-content-key="mensaje3"></div>
-            <div class="gift gift-4" data-content-key="mensaje4"></div>
-            <div class="gift gift-5" data-content-key="mensaje5"></div>
-            <div class="gift gift-6" data-content-key="mensaje6"></div>
-            <div class="gift gift-7" data-content-key="mensaje7"></div>
-        </div> 
-        <div id="popup-overlay" class="popup-overlay">
-            <div class="popup-content">
-                <button class="close-btn" id="close-popup">&times;</button>
-                <div id="popup-body">
-                    </div>
+            <div class="gift gift-1" 
+                data-tooltip="Climate Connections at the Ice-Sea Interface"
+                onclick="openModal1()">
             </div>
-        </div>
+            <div class="gift gift-2" 
+                data-tooltip="Searching for New Species in the South Sandwich Islands"
+                onclick="openModal2()">
+            </div>
+            <div class="gift gift-3" 
+                data-tooltip="Underwater Oases of the Mar del Plata Canyon"
+                onclick="openModal3()">
+            </div>
+            <div class="gift gift-4" 
+                data-tooltip="Visualizing the Deep off Uruguay"
+                onclick="openModal4()">
+            </div>
+            <div class="gift gift-5" 
+                data-tooltip="A Tale of Two Canyons"
+                onclick="openModal5()">
+            </div>
+            <div class="gift gift-6" 
+                data-tooltip="Searching for the Asgards"
+                onclick="openModal6()">
+            </div>
+            <div class="gift gift-7" 
+                data-tooltip="Life in Extremes — Cold Seeps of Argentina"
+                onclick="openModal7()">
+            </div>
+        </div> 
     </div>
     <div class="rotate-message">
         <div class="message-content">
@@ -33,6 +63,10 @@
     </div>
 
     <script src="./app.js"></script>
-    <script src="./popup.js"></script>
+    
+    <script src="./initial-popup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tingle.js@0.15.3/dist/tingle.min.js"></script>
+    <script src="./modals.js" download></script>
+    <script src="./gifts-animation.js" download></script>
 </body>
 </html>

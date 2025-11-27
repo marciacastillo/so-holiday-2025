@@ -1,0 +1,21 @@
+subir a repo tarjeta navidad 
+
+regalo al pasar con hover q muestre nombre 
+
+agregar popup inicial (va a diseñarlo Jorge) 
+
+efecto para notar q es clickeable
+regalos flotando? 
+o un brillito q aparezca y desaparezca como un destello 
+
+scale en hover
+
+
+
+efecto moni: 
+
+dice raul probar con dos filtros. un filter oscuro y otro con el mouse con filtro alto 
+
+si se hace el cuarto oscuro iluminar un poco las luces del cuarto 
+
+tema videos va a ver mey 

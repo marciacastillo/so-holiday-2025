@@ -35,8 +35,9 @@ html, body {
     filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
 
     /* Estado normal: Iniciamos la animación */
+    
     animation: 
-        destello-constante 2.5s ease-in-out infinite alternate; /* 2.5s de duración, se repite y va y viene */
+        destello-constante 3.5s ease-out infinite alternate; /* 2.5s de duración, se repite y va y viene */
 
     transform:scale(1);
 }
@@ -46,7 +47,7 @@ html, body {
     content: '';
     position: absolute;
     /* Usamos la imagen de destello que nos proporcionaste */
-    background-image: url('destello.png'); 
+    background-image: url('./assets/destello.png'); 
     background-size: contain;
     width: 30px; /* Tamaño base del destello */
     height: 30px;
@@ -57,32 +58,51 @@ html, body {
     
     /* Aplicamos la animación al destello, no al .gift principal */
     animation: 
-        destello-intermitente 3.5s ease-out infinite; /* 3.5s de duración */
+        destello-intermitente 3.5s ease-out infinite alternate; /* 3.5s de duración */
     
     /* Configuramos la transición para que el hover pueda detenerlo suavemente */
     transition: opacity 0.4s; 
 }
 
+/* ---------------------------------------------------- */
+/* Lógica de control de pausa y hover */
+/* ---------------------------------------------------- */
+
+/* 1. Al hacer hover en el gift, el destello desaparece */
+.gift:hover::before {
+    /* Detenemos la animación y lo hacemos invisible al instante */
+    animation-play-state: paused !important;
+    opacity: 0 !important;
+}
+
+/* 2. La clase .paused detiene el destello en los gifts inactivos */
+/* (Esta clase es aplicada por JavaScript a los demás gifts) */
+.gift.paused::before {
+    /* Detenemos la animación */
+    animation-play-state: paused !important;
+    /* Y aseguramos que el destello se quede invisible */
+    opacity: 0 !important;
+    transform: scale(0) !important;
+}
+
+/* Y si quieres mantener la animación de destellos en el elemento activo, puedes hacer esto: */
 .gift:hover {
-    transform:scale(1.1);
-    transform:all 0.4s ease-in-out;
-    /* 1. Detener la animación para que el brillo sea fijo */
-    animation-play-state: paused;
+    /* Aquí puedes aplicar tu drop-shadow fijo para el borde del gift */
+    /*filter: drop-shadow(0 0 15px #ffdd44) drop-shadow(0 0 5px #ffdd44); 
     
-    /* 2. Aplicar el brillo MÁXIMO (tu estilo de hover original) */
-    filter: drop-shadow(0 0 15px #ffdd44)
-            drop-shadow(0 0 5px #ffdd44); 
-            
+    /* Nota: Si quieres que el destello (::before) también siga animándose al hacer hover,
+       simplemente quita la regla .gift:hover::before de arriba. */
+       transform:scale(1.1);
 }
 
 /* Destellos aleatorios */
-.gift-1 { animation-delay: 0.1s; } 
-.gift-2 { animation-delay: 0.8s; } 
-.gift-3 { animation-delay: 1.5s; } 
-.gift-4 { animation-delay: 0.3s; } 
-.gift-5 { animation-delay: 1.2s; } 
-.gift-6 { animation-delay: 0.6s; } 
-.gift-7 { animation-delay: 1.8s; }
+.gift-1, .gift-1:before { animation-delay: 0.1s; } 
+.gift-2, .gift-2:before { animation-delay: 0.8s; } 
+.gift-3, .gift-3:before { animation-delay: 1.5s; } 
+.gift-4, .gift-4:before { animation-delay: 0.3s; } 
+.gift-5, .gift-5:before { animation-delay: 1.2s; } 
+.gift-6, .gift-6:before { animation-delay: 0.6s; } 
+.gift-7, .gift-7:before { animation-delay: 1.8s; }
 
 /* Clase que detiene la animación. La aplicaremos a todos los gifts. */
 .gift.paused {
@@ -490,8 +510,8 @@ html, body {
     
     /* 40%: El destello comienza a aparecer y crecer en la Ubicación 2 */
     40% {
-        top: 80%;
-        left: 70%;
+        top: 60%;
+        left: 50%;
         opacity: 0;
         transform: scale(0.5);
     }
