@@ -382,6 +382,11 @@ html, body {
   color: #1372B4;
 }
 
+.modal .tingle-modal__close {
+    top: 4rem;
+    right: 4rem;
+}
+
 .modal .tingle-modal-box {
   aspect-ratio: 4 / 7;
   width: auto;
@@ -465,6 +470,9 @@ html, body {
   .tingle-modal__closeLabel {
     display: none;
   }
+  .tingle-modal__closeIcon {
+        width: 2.5rem !important;
+    }
 }
 
 .tingle-modal__close {
