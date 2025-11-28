@@ -1,8 +1,9 @@
 // --- LÓGICA DE LA LINTERNA ---
-const torchOverlay = document.getElementById('torch-overlay');
+const torchOverlay = document.querySelector('body:not(.popup-opened) .torch-overlay');
 
 // La función principal que se ejecuta cada vez que el ratón se mueve
 function moveTorch(event) {
+    if(!document.querySelector("body").classList.contains("popup-opened")){
     // 1. Obtener las coordenadas del ratón
     const mouseX = event.clientX;
     const mouseY = event.clientY;
@@ -22,6 +23,8 @@ function moveTorch(event) {
 
     // 4. Aplicar el nuevo estilo
     torchOverlay.style.backgroundImage = newBackground;
+    }
+    
 }
 
 // 5. Agregar el listener del evento mousemove

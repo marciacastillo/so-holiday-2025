@@ -1,10 +1,15 @@
+
+:root{
+  --text-color: #020308;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
     overflow: hidden; /* Evita barras de desplazamiento */
-    font-family: sans-serif;
+    font-family: "EB Garamond", serif;
 }
 
 /* ---------------------------------------------------- */
@@ -13,12 +18,13 @@ html, body {
 
 .full-container{
     width:100vw;
-    height:100vh;
+    height:100dvh;
     background-image:url(./assets/so-bg.webp);
     background-size:cover;
     background-position:center;
     background-repeat: no-repeat;
     position: relative;
+    cursor:none;
 }
 
 .gift{
@@ -27,49 +33,18 @@ html, body {
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
+    cursor:pointer;
 
-    /* 1. Aplicar la transición al 'filter' para un efecto suave */
     transition: all 0.4s ease-in-out;
-    
-    /* Estado normal: Sin filtro o un filtro base muy sutil */
     filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
-
-    /* Estado normal: Iniciamos la animación */
-    animation: 
-        destello-constante 2.5s ease-in-out infinite alternate; /* 2.5s de duración, se repite y va y viene */
-
+    animation: destello-constante 2.5s ease-in-out infinite alternate;
     transform:scale(1);
-}
-
-/* El pseudo-elemento que será el destello */
-.gift::before {
-    content: '';
-    position: absolute;
-    /* Usamos la imagen de destello que nos proporcionaste */
-    background-image: url('destello.png'); 
-    background-size: contain;
-    width: 30px; /* Tamaño base del destello */
-    height: 30px;
-    
-    /* Inicialmente el destello es invisible y muy pequeño */
-    opacity: 0;
-    transform: scale(0);
-    
-    /* Aplicamos la animación al destello, no al .gift principal */
-    animation: 
-        destello-intermitente 3.5s ease-out infinite; /* 3.5s de duración */
-    
-    /* Configuramos la transición para que el hover pueda detenerlo suavemente */
-    transition: opacity 0.4s; 
 }
 
 .gift:hover {
     transform:scale(1.1);
     transform:all 0.4s ease-in-out;
-    /* 1. Detener la animación para que el brillo sea fijo */
     animation-play-state: paused;
-    
-    /* 2. Aplicar el brillo MÁXIMO (tu estilo de hover original) */
     filter: drop-shadow(0 0 15px #ffdd44)
             drop-shadow(0 0 5px #ffdd44); 
             
@@ -87,8 +62,6 @@ html, body {
 /* Clase que detiene la animación. La aplicaremos a todos los gifts. */
 .gift.paused {
     animation-play-state: paused !important;
-    /* drop-shadow(0 0 0 color) hace que el desenfoque sea 0, eliminando el brillo */
-    /*filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0)) !important;*/
 }
 
 /* Tooltip */
@@ -188,9 +161,6 @@ html, body {
     left:15vw;
 }
 
-/*position de cada gift*/
-
-
 /* Por defecto, el contenido principal está oculto */
 .full-container {
     display: none; 
@@ -206,13 +176,26 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #e74c3c; /* Color de advertencia */
+    background: radial-gradient(50% 50% at 50% 50%, #172440 0%, #0D1A36 100%);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; 
+    z-index: 999999; 
     text-align: center;
+}
+.rotate-message img{
+  width: 100px;
+}
+.rotate-message h2{
+  color: #2786C8;
+  font-size: 40px;
+  padding:0 5vw;
+  margin-bottom:0; 
+}
+.rotate-message p{
+  font-size:24px;
+  padding:0 5vw;
 }
 
 /* Por defecto, el mensaje de rotación está visible */
@@ -222,7 +205,7 @@ html, body {
 
 
 /* ---------------------------------------------------- */
-/* 3. MEDIA QUERIES: LA MAGIA DE LA ORIENTACIÓN         */
+/* 3. MEDIA QUERIES PARA MANEJO DE LA ORIENTACIÓN         */
 /* ---------------------------------------------------- */
 
 /* Si la pantalla está en modo HORIZONTAL (Landscape) */
@@ -243,12 +226,32 @@ html, body {
 @media screen and (orientation: portrait) {
     
     /* Mostrar el mensaje de rotación */
-    .rotate-message {
+    body:not(.popup-opened) .rotate-message {
         display: flex;
     }
     
     /* Ocultar el contenido principal */
-    .full-container {
+    body:not(.popup-opened) .full-container {
+        display: none; 
+    }
+
+        /* Mostrar el mensaje de rotación */
+    body.popup-opened:not(.initial-popup-opened) .rotate-message {
+        display: none;
+    }
+    
+    /* Ocultar el contenido principal */
+    body.popup-opened:not(.initial-popup-opened) .full-container {
+        display: flex; 
+    }
+
+            /* Mostrar el mensaje de rotación */
+    body.popup-opened.initial-popup-opened .rotate-message {
+        display: flex;
+    }
+    
+    /* Ocultar el contenido principal */
+    body.popup-opened.initial-popup-opened .full-container {
         display: none; 
     }
 }
@@ -262,7 +265,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: radial-gradient(50% 50% at 50% 50%, rgba(42, 73, 143, 0.64) 0%, rgba(0, 0, 0, 0.8) 100%);
     justify-content: center;
     align-items: center;
     z-index: 20000; /* Aseguramos que esté por encima de todo */
@@ -273,30 +276,68 @@ html, body {
 }
 
 .initial-popup-content {
-    background: #ecf0f1; /* Fondo claro */
-    color: #2c3e50;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    background-image: url(./assets/tarjeta-sobre-azul.webp);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: var(--text-color);
     text-align: center;
-    max-width: 400px;
+    width: 120vh;
+    height: 100vh;
     animation: fadeIn 0.3s ease-out; /* Opcional: una pequeña animación */
+    box-sizing: border-box;
+    padding: 28vh 33vh 30vh 38vh;
+    position: relative;
+}
+.initial-popup-content  h2{
+  font-size:3vh;
+}
+.initial-popup-content  .initial-popup-text{
+  padding: 0;/* 20px;*/
+}
+.initial-popup-content  p{
+    font-size: 1.6vh;
+    text-align: justify;
+}
+.initial-popup-content  p.farewell{
+  text-align: center;
+  font-weight: bold;
+
+}
+.initial-popup-content  p.signature{
+  text-align: center;
+  font-weight: 500;
+  font-size:2vh;
 }
 
 .popup-btn {
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-    font-size: 16px;
-    transition: background-color 0.2s;
+  background-color: #FFAE00;
+  color: var(--text-color);
+  padding: 1vh 8vh;
+  border-radius: 4vh;
+  font-size: 2.7vh;
+  font-weight: bold;
+  display: inline-block;
+  position: relative;
+  box-shadow: 0 8px 0 #FF5900;
+  transition: all 0.2s ease;
+  border:none !important;
+  font-family: "EB Garamond", serif;
+  position:absolute;
+  bottom:17vh;
+  right:30vh;
+  transform:translateY(0);
+  cursor:pointer;
 }
 
 .popup-btn:hover {
-    background-color: #2980b9;
+  transform:translateY(4px);
+  box-shadow: 0 4px 0 #FF5900;
+}
+
+.popup-btn:active {
+  transform:translateY(8px);
+  box-shadow: 0 0 0 #FF5900;
 }
 
 /* Opcional: Keyframe para la animación de entrada */
@@ -308,7 +349,7 @@ html, body {
 /* estilos Modal */
 
 .modal {
-  background: rgba(0, 0, 0, 0.7);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(42, 73, 143, 0.64) 0%, rgba(0, 0, 0, 0.8) 100%) !important;
   display: flex;
   justify-content: center;
 }
@@ -321,23 +362,24 @@ html, body {
 .modal h2 {
   text-align: center;
   margin: 12px 0;
-  max-width: 85%;
   transition: 1s;
-}
-
-.modal h2 a {
-  font-style: italic;
-  color: #00529b;
+  color: var(--text-color);
   text-decoration: none;
   cursor: pointer;
   text-align: center;
-  font-size: 1.8rem;
-  transition: 1s;
+  font-size: 28px;
+  margin-bottom:0;
 }
 
-.modal h2:hover{
-  text-decoration: underline;
-  transform: scale(1.025);
+
+.modal h3 {
+  color: #1372B4;
+  font-size: 1.2rem;
+  margin-top:1rem;
+  margin-bottom:3rem;
+}
+.modal p, .modal a{
+  color: #1372B4;
 }
 
 .modal .tingle-modal-box {
@@ -371,6 +413,7 @@ html, body {
   overflow: hidden;
   min-height: 350px;
   height: 60vh;
+  margin-bottom:2rem;
 }
 
 .video iframe {
@@ -392,6 +435,15 @@ html, body {
 
   .video {
     aspect-ratio: 4 / 7;
+  }
+  .modal h2{
+    font-size:20px;
+  }
+    .modal h3{
+    font-size:18px;
+  }
+  .modal p{
+    font-size:16px;
   }
 }
 
@@ -439,10 +491,10 @@ html, body {
   fill: #00529b !important;
 }
 
-/* ---------------------------------------------------- */
-/* 1. DEFINICIÓN DE KEYFRAMES PARA EL BRILLO INTERMITENTE */
-/* ---------------------------------------------------- */
 
+/* ---------------------------------------------------- */
+/* KEYFRAMES PARA EL BRILLO DE LOS REGALOS */
+/* ---------------------------------------------------- */
 /* Creamos una animación que hace que el resplandor se encienda y se apague suavemente */
 @keyframes destello-constante {
     0% {
@@ -462,64 +514,12 @@ html, body {
     }
 }
 
-/* ---------------------------------------------------- */
-/* KEYFRAMES PARA EL MOVIMIENTO, TAMAÑO Y OPACIDAD DEL DESTELLO */
-/* ---------------------------------------------------- */
-@keyframes destello-intermitente {
-    /* Estado inicial: El destello está fuera o en un punto inicial, invisible y pequeño */
-    0% {
-        top: 10%; 
-        left: 10%;
-        opacity: 0;
-        transform: scale(0);
-    }
-    
-    /* 5%: Aparece y crece rápidamente en la Ubicación 1 */
-    5% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    
-    /* 20%: Desaparece en la Ubicación 1 */
-    20% {
-        top: 20%;
-        left: 20%;
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    
-    /* 40%: El destello comienza a aparecer y crecer en la Ubicación 2 */
-    40% {
-        top: 80%;
-        left: 70%;
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    
-    /* 50%: Pico de visibilidad y tamaño en la Ubicación 2 */
-    50% {
-        opacity: 1;
-        transform: scale(1.2); /* Ligeramente más grande */
-    }
-    
-    /* 60%: Desaparece en la Ubicación 2 */
-    60% {
-        opacity: 0;
-        transform: scale(0);
-    }
-    
-    /* 100%: Permanece invisible hasta el final del ciclo */
-    100% {
-        opacity: 0;
-        transform: scale(0);
-    }
-}
 
 /* ---------------------------------------------------- */
 /* ESTILOS PARA LA CAPA OSCURA Y EL EFECTO LINTERNA     */
 /* ---------------------------------------------------- */
 
-.torch-overlay {
+body:not(.popup-opened) .torch-overlay {
     position: fixed; /* Fija la capa a la ventana de visualización */
     top: 0;
     left: 0;
@@ -534,8 +534,12 @@ html, body {
         rgba(0, 0, 0, 0.7) 150px /* El resto es negro con 90% de opacidad (la oscuridad) */
     );
 }
+body.popup-opened .torch-overlay{
+  background:transparent;
+}
 
-/* Opcional: Oscurecer el fondo para que el efecto sea más notorio */
-body {
-    background-color: #000; 
+@media screen and (max-width:768px){
+  .torch-overlay{
+    display: none;
+  }
 }
