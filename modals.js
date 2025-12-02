@@ -129,7 +129,7 @@ function openModal7(content) {
           14 December 2025 - 10 January 2026
         </h3>
         <div class="video">
-        <iframe src="https://www.youtube.com/embed/mEaW4aWr-bk?list=PLJGVqQI3okzY7kHQOr6yQk4L82M6QdgQ4" title="FKt241011 - Glitter Polychaete" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/TrskfvvTuZw" title="FKt241011 - Glitter Polychaete" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <p>The #ArgentinianDeepSeeps exploration in pursuit of deep water cold seeps and understudied benthic communities off Argentina is now underway! Follow the expedition, which concludes in mid-January, via the Schmidt Ocean Institute <a href="https://www.youtube.com/@SchmidtOcean" target="_blank">YouTube Channel</a> and visit the <a href="https://schmidtocean.org/cruises/" target="_blank">website to learn more</a>. </p>
       `);

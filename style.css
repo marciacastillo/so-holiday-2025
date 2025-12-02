@@ -265,10 +265,10 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(50% 50% at 50% 50%, rgba(42, 73, 143, 0.64) 0%, rgba(0, 0, 0, 0.8) 100%);
+    background: rgba(1, 27, 59, 0.85); 
     justify-content: center;
     align-items: center;
-    z-index: 20000; /* Aseguramos que esté por encima de todo */
+    z-index: 20000; 
 }
 
 .initial-popup-overlay.show {
@@ -276,74 +276,91 @@ html, body {
 }
 
 .initial-popup-content {
-    background-image: url(./assets/tarjeta-sobre-azul.webp);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
     color: var(--text-color);
     text-align: center;
-    width: 120vh;
-    height: 100vh;
-    animation: fadeIn 0.3s ease-out; /* Opcional: una pequeña animación */
     box-sizing: border-box;
-    padding: 28vh 33vh 30vh 38vh;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    flex-direction: column;
 }
-.initial-popup-content  h2{
-  font-size:3vh;
-}
-.initial-popup-content  .initial-popup-text{
-  padding: 0;/* 20px;*/
-}
-.initial-popup-content  p{
-    font-size: 1.6vh;
-    text-align: justify;
-}
-.initial-popup-content  p.farewell{
-  text-align: center;
-  font-weight: bold;
 
-}
-.initial-popup-content  p.signature{
-  text-align: center;
-  font-weight: 500;
-  font-size:2vh;
+.initial-popup-content  p{
+    font-size: 31px;
+    width:80%;
+    max-width: 1200px;
+    color:white;
+    margin: auto;
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: bold;
+    position: relative;
+    z-index: 4;
 }
 
 .popup-btn {
-  background-color: #FFAE00;
+  background-image: url(./assets/welcome/Boton.webp);
+  background-size:contain;
+  background-position:center;
+  background-repeat: no-repeat;
   color: var(--text-color);
-  padding: 1vh 8vh;
-  border-radius: 4vh;
-  font-size: 2.7vh;
+  font-size: 31px;
   font-weight: bold;
   display: inline-block;
   position: relative;
-  box-shadow: 0 8px 0 #FF5900;
+  transform:scale(1);
   transition: all 0.2s ease;
   border:none !important;
+  background-color:transparent !important;
   font-family: "EB Garamond", serif;
-  position:absolute;
-  bottom:17vh;
-  right:30vh;
-  transform:translateY(0);
   cursor:pointer;
+  width: 270px;
+    height: 70px;
+}
+
+.popup-btn:focus-visible{
+  outline:none !important;
 }
 
 .popup-btn:hover {
-  transform:translateY(4px);
-  box-shadow: 0 4px 0 #FF5900;
+  transform:scale(1.1);
 }
 
 .popup-btn:active {
-  transform:translateY(8px);
-  box-shadow: 0 0 0 #FF5900;
+  transform:scale(1.1);
+}
+.initial-popup-logo{
+  width:10%;
+}
+.initial-popup-luces, .initial-popup-regalos, .initial-popup-ROV{
+  position:absolute;
+  pointer-events:none;
 }
 
-/* Opcional: Keyframe para la animación de entrada */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+.initial-popup-luces{
+  width:100%;
+  height:100% !important;
+  object-fit:contain;
+  object-position:center top;
+  left:0;
+  top:0;
+}
+.initial-popup-regalos{
+  width:15%;
+  left:3%;
+  bottom:0;
+}
+.initial-popup-ROV{
+  width:50%;
+  right:0;
+  top:35%;
+}
+
+@media screen and (max-width:768px){
+  .initial-popup-content p, .initial-popup-content .popup-btn{
+    font-size:2vw;
+  }
 }
 
 /* estilos Modal */
