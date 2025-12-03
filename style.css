@@ -357,7 +357,7 @@ html, body {
   top:35%;
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-height:768px) and (orientation: landscape){
   .initial-popup-content p, .initial-popup-content .popup-btn{
     font-size:16px;
   }
