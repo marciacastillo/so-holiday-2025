@@ -27,6 +27,14 @@ html, body {
     cursor:none;
 }
 
+.principal-logo{
+  position:absolute;
+  width:6vw;
+  top:2vh;
+  left:50%;
+  transform:translateX(-50%);
+}
+
 .gift{
     position: absolute;
     overflow:hidden;
@@ -404,6 +412,10 @@ html, body {
     right: 4rem;
 }
 
+span.tingle-modal__closeLabel {
+    display: none;
+}
+
 .modal .tingle-modal-box {
   aspect-ratio: 4 / 7;
   width: auto;
@@ -447,12 +459,13 @@ html, body {
   .modal .tingle-modal-box {
     height: 96%;
     border: #0b2852 16px solid;
+    max-width:100%;
   }
 
   .tingle-modal-box__content {
     border: #84c0d3 10px solid;
     height: calc(100% + 10px);
-    margin: -5px;
+    padding-top:5rem !important;
   }
 
   .video {
@@ -470,7 +483,7 @@ html, body {
 }
 
 @media (max-width: 540px) {
-  .tingle-modal__close {
+  .modal .tingle-modal__close {
     top: 2.5rem;
     right: 2.5rem;
     left: unset;
@@ -490,6 +503,12 @@ html, body {
   .tingle-modal__closeIcon {
         width: 2.5rem !important;
     }
+}
+
+@media (max-width: 540px) and (orientation: portrait) {
+  .modal .tingle-modal__close {
+    top: 6.7rem;
+  }
 }
 
 .tingle-modal__close {
