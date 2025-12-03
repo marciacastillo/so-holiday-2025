@@ -101,7 +101,7 @@ html, body {
     height: 35%;
     bottom: 5%;
     left: 50%;
-    background-image: url(./assets/gift-1.webp);
+    background-image: url(./assets/gifts/Regalo1.webp);
     z-index: 7;
 }
 .gift-2{
@@ -110,7 +110,7 @@ html, body {
     bottom: 8%;
     left: 33%;
     z-index: 6;
-    background-image: url(./assets/gift-2.webp);
+    background-image: url(./assets/gifts/Regalo2.webp);
 }
 .gift-3{
     width: 20%;
@@ -118,7 +118,7 @@ html, body {
     bottom: 10%;
     left: 17%;
     z-index: 5;
-    background-image: url(./assets/gift-3.webp);
+    background-image: url(./assets/gifts/Regalo3.webp);
 }
 .gift-4{
     width: 20%;
@@ -126,7 +126,7 @@ html, body {
     bottom: 30%;
     left: 0;
     z-index: 4;
-    background-image: url(./assets/gift-4.webp);
+    background-image: url(./assets/gifts/Regalo4.webp);
 }
 .gift-5{
     width: 25%;
@@ -134,7 +134,7 @@ html, body {
     top: 15%;
     left: 4%;
     z-index: 3;
-    background-image: url(./assets/gift-5.webp);
+    background-image: url(./assets/gifts/Regalo5.webp);
 }
 .gift-6{
     width: 20%;
@@ -142,7 +142,7 @@ html, body {
     top: 20%;
     left: 25%;
     z-index: 1;
-    background-image: url(./assets/gift-6.webp);
+    background-image: url(./assets/gifts/Regalo6.webp);
 }
 .gift-7{
     width: 25%;
@@ -150,7 +150,7 @@ html, body {
     top: 22%;
     left: 37%;
     z-index: 2;
-    background-image: url(./assets/gift-7.webp);
+    background-image: url(./assets/gifts/Regalo7.webp);
 }
 
 .gifts-container{
@@ -359,7 +359,7 @@ html, body {
 
 @media screen and (max-width:768px){
   .initial-popup-content p, .initial-popup-content .popup-btn{
-    font-size:2vw;
+    font-size:16px;
   }
 }
 
