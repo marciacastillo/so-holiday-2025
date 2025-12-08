@@ -30,9 +30,8 @@ html, body {
 .principal-logo{
   position:absolute;
   width:6vw;
-  top:2vh;
-  left:50%;
-  transform:translateX(-50%);
+  top:5vw;
+  right:5vw;
 }
 
 .gift{
