@@ -12,6 +12,10 @@ html, body {
     font-family: "EB Garamond", serif;
 }
 
+.italic{
+  font-style: italic !important;
+}
+
 /* ---------------------------------------------------- */
 /* 1. Estilos del CONTENIDO PRINCIPAL (full-container)  */
 /* ---------------------------------------------------- */

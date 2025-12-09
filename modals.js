@@ -45,7 +45,7 @@ function openModal2() {
         <div class="video">
           <iframe src="https://www.youtube.com/embed/SbcAuVwDUBs" title="Holiday Card - FKt240224 Strawberry Squid" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <p>One hundred years after its discovery, we were excited to see the first footage of a juvenile colossal squid filmed alive in its environment in the waters at a depth of 600 meters off #SouthSandwichIslands on this Ocean Census flagship expedition.</p>
+        <p>One hundred years after its discovery, we were excited to capture the first footage of a juvenile colossal squid, filmed alive in its environment at 600 meters off the #SouthSandwichIslands on an Ocean Census flagship expedition.</p>
         `);
   modal.open();
 }
@@ -80,7 +80,7 @@ function openModal4(content) {
         <div class="video">
           <iframe src="https://www.youtube.com/embed/3wpu8FJijTg" title="Holiday Card - FKt240524 Munnopsid isopod" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <p>During the #UruguaySub200 expedition, scientists discovered bustling fields of deep coral reefs and at least 30 potential new species, and they visited the wreck of the ROU Uruguay for the first time. </p>
+        <p>During the #UruguaySub200 expedition, scientists discovered bustling fields of deep coral reefs and at least 30 potential new species, and they visited the wreck of the ROU <span class="italic">Uruguay</span> for the first time. </p>
         `);
   modal.open();
 }
@@ -97,7 +97,7 @@ function openModal5(content) {
         <div class="video">
           <iframe src="https://www.youtube.com/embed/50obQP5r_1Q" title="Holiday Card - FKt240708 Corals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <p>While ROV SuBastian was flying over one of the two underwater canyons being studied during the #Taleof2Canyons expedition, pilots filmed this gorgeous octopus hanging out in a field of brittle stars at 186 meters. Hovering over a patch of sediment, lighter in color than the surrounding area, the cephalopod opened up like an umbrella to feed, likely on a crustacean.</p>
+        <p>While ROV <span class="italic">SuBastian</span> was flying over one of the two underwater canyons being studied during the #Taleof2Canyons expedition, pilots filmed this gorgeous octopus hanging out in a field of brittle stars at 186 meters. Hovering over a patch of sediment, lighter in color than the surrounding area, the cephalopod opened up like an umbrella to feed, likely on a crustacean.</p>
         `);
   modal.open();
 }
